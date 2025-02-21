@@ -1,0 +1,23 @@
+{
+  "name": "chirpsocial",
+  "version": "1.0.0",
+  "description": "Social media website similar to twitter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ChirpSocial"
+  },
+  "author": "Louis Chartier, Rima Dagher and David Demers",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "npmlog": "^7.0.1",
+    "sequelize": "^6.37.5",
+    "validator": "^13.12.0"
+  }
+}
