@@ -1,0 +1,41 @@
+2025/2/21 David Demers
+Completed:
+-sass general styles created for front-end
+-project setup completed
+Working on:
+-registration page started
+-finding simple logo for website
+Todo:
+-Sign in page
+-Edit profile page
+-View other user profile page
+-User home page
+-Search page
+-View chirp (post) page
+
+
+2025/2/21 Louis Chartier
+Completed:
+-posts model
+-posts controller validation function
+Working on:
+-posts controller
+-posts routes
+Todo:
+-image storage
+-all controller http methods
+-test API with postman
+
+
+2025/2/21 Rima Dagher
+Completed:
+-users model
+-users controller get by id
+-users controller get all users
+Working on:
+-users controller validation
+Todo:
+-users controller password hashing
+-users authentication
+-other controller http methods
+-test API with postman
