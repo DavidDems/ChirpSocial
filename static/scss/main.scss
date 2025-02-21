@@ -2,7 +2,10 @@
 @import './variables';
 @import './mixins';
 @import './navbar';
+@import './form';
+@import './login';
+@import './register';
 
-* {
+body {
     background-color: #E8FFFC;
 }

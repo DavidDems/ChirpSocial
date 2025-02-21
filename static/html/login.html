@@ -8,33 +8,18 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<link rel="stylesheet" href="../css/main.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="../js/createUser.js" defer></script>
+    <script src="../js/loginUser.js" defer></script>
 </head>
 <body>
     <div id="banner">
         <img id="logo" src="../../medias/chirpLogo.png">
     </div>
 
-    <form id="register-form">
-        <h2>Sign Up Form</h2>
+    <form id="login-form">
+        <h2>Login</h2>
         <label for="username">Username:</label>
         <div>
             <input id="username" type="text">
-            <p></p>
-        </div>
-        <label for="displayname">Display Name:</label>
-        <div>
-            <input id="displayname" type="text">
-            <p></p>
-        </div>
-        <label for="email">Email:</label>
-        <div>
-            <input id="email" type="text" placeholder="example@mail.com">
-            <p></p>
-        </div>
-        <label id="dob-label" for="dob">Date of Birth:</label>
-        <div>
-            <input id="dob" type="text" placeholder="YYYY-MM-DD">
             <p></p>
         </div>
         <label for="password">Password:</label>
@@ -42,19 +27,15 @@
             <input id="password" type="password">
             <p></p>
         </div>
-        <label for="re-password">Re-enter Password:</label>
-        <div>
-            <input id="re-password" type="password">
-            <p></p>
-        </div>
-        <button id="registerBtn" type="button">Register</button>
+        <p id="register-link">Don&#39t have an account? <a href="register.html">Register Here!</a></p>
+        <button id="loginBtn" type="button">Login</button>
     </form>
 
     <!-- Modal popup on successful user registration -->
 	<div id="modal">
 		<div id="modal-content">
 		  <span id="close">&times;</span>
-		  <p id="success">
+		  <p id="error">
 		  </p>
 		</div>  
 	</div>
