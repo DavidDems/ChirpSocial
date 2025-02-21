@@ -1,3 +1,14 @@
+--hostname: team1chirpdb.mysql.database.azure.com
+--port: 3306
+--username: team1chirpdb
+--password: U561MQ7kugctxPx
+--resource group: rg-team1-mysql
+--server name: team1chirpdb
+
+CREATE DATABASE team1chirpdb;
+USE team1chirpdb;
+
+
 CREATE TABLE `users` (
 userId INT PRIMARY KEY AUTO_INCREMENT,
 username VARCHAR(100) NOT NULL UNIQUE,
@@ -25,6 +36,7 @@ postImg MEDIUMBLOB NULL,
 postDate DATETIME DEFAULT CURRENT_TIMESTAMP,
 likes INT DEFAULT 0
 );
+
 
 CREATE TABLE `followers` (
 accountId INT NOT NULL,
@@ -54,8 +66,3 @@ FOREIGN KEY (accountId) REFERENCES users (userId);
 ALTER TABLE followers
 ADD CONSTRAINT fk_followerid 
 FOREIGN KEY (followerId) REFERENCES users (userId);
-
---resource group: rg-team1-mysql
---server name: team1chirpdb
---username: team1chirpdb
---password: U561MQ7kugctxPx
