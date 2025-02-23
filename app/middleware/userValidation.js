@@ -41,3 +41,19 @@ exports.validateRegistration = [
     next();
   },
 ];
+
+exports.validateLogin = [
+  body('email').isEmail().withMessage('Invalid email format'),
+
+  body('password').isEmpty().withMessage('Password is required'),
+
+  // Middleware to chechk validation errors
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      log.error(`Validation Error: ${JSON.stringify(errors.array())} `);
+      return res.status(400).json({ errors: errors.array() });
+    }
+    next();
+  },
+];
