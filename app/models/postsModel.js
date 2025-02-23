@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, Sequelize) => {
     const Post = sequelize.define("Post", {
         postId: {

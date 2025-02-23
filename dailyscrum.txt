@@ -39,3 +39,43 @@ Todo:
 -users authentication
 -other controller http methods
 -test API with postman
+
+
+2025/2/23 David Demers
+Completed:
+-User Register page without api call
+-User login page without api call
+-Website navbar area
+Working on:
+-User profile page design
+-integrating api calls to login and register pages
+Todo:
+-Search page
+-Create a post page
+
+
+2025/2/23 Louis Chartier
+Completed:
+-Posts controller
+-Posts routes
+Working on:
+-Fixing minor bugs with controller
+-Testing controller with postman
+-Reply and reposts logic
+Todo:
+-Getting image stored on db
+
+
+2025/2/23 Rima Dagher
+Completed:
+-GET/users/search (Search user by username/displayname)
+-PATCH/user/:id/edit  (Update user profile)
+-POST/api/users/register
+-POST/api/users/login
+-validation.js
+Working on:
+-authentication
+-secure login
+Todo:
+-protect routes
+-controller testing with postman
