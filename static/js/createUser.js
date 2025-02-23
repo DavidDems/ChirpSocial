@@ -34,7 +34,7 @@ $('#password').on('input', function() {
     const $errorMessage = $(this).next('p');
 
     if (!validatePasswordLength(password)) {
-        $errorMessage.text('Password must be at least 8 characters long.').css('color', 'red');
+        $errorMessage.text('Minimum 8 characters.').css('color', 'red');
     } else {
         $errorMessage.text('').css('color', '');
     }

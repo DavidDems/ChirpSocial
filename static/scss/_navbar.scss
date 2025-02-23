@@ -1,4 +1,51 @@
-#logo {
+// aligining banner
+#banner-nav {
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+}
+
+// styling banner logo
+#banner-logo {
     margin-left: 1%;
+    margin-top: 1%;
     width: 10%;
+}
+#logo {
+    width: 80%;
+    padding-bottom: 18%;
+}
+
+// styling nav links
+#nav {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+#nav div {
+    margin: 30%;
+    margin-top: 5%;
+    font-size: 2rem;
+    color: $secondary-color;
+    padding: 0 2%;
+    padding-bottom: 3%;
+}
+#nav div:hover {
+    border-bottom: 2px solid $third-color;
+}
+
+// making profile link equal width to banner to auto margin the nav links
+#profile-icon {
+    text-align: right;
+    margin-top: 0.5%;
+    margin-right: 1%;
+    width: 10%;
+}
+#icon {
+    width: 35%;
+    border-radius: 100%;
+}
+#icon:hover {
+    border-bottom: 2.5px solid $third-color;
+    border-radius: 100%;
 }

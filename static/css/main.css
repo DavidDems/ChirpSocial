@@ -1,10 +1,59 @@
+/* main colors */
 /* Mixin to set content to flex and center it */
 /* Mixin to set content to grid and center it */
 /* Margin and padding mixins to quickly and easily set them */
 /* smt: small tall, smw: small wide, md: medium, lg: large */
-#logo {
+#banner-nav {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+}
+
+#banner-logo {
   margin-left: 1%;
+  margin-top: 1%;
   width: 10%;
+}
+
+#logo {
+  width: 80%;
+  padding-bottom: 18%;
+}
+
+#nav {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#nav div {
+  margin: 30%;
+  margin-top: 5%;
+  font-size: 2rem;
+  color: #78009E;
+  padding: 0 2%;
+  padding-bottom: 3%;
+}
+
+#nav div:hover {
+  border-bottom: 2px solid #AA76CD;
+}
+
+#profile-icon {
+  text-align: right;
+  margin-top: 0.5%;
+  margin-right: 1%;
+  width: 10%;
+}
+
+#icon {
+  width: 35%;
+  border-radius: 100%;
+}
+
+#icon:hover {
+  border-bottom: 2.5px solid #AA76CD;
+  border-radius: 100%;
 }
 
 #register-form, #login-form {
@@ -13,6 +62,7 @@
   padding: 1rem 0;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2%;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: auto auto;
   border: 2px solid black;
@@ -84,6 +134,49 @@
 #register-form p {
   font-size: small;
   margin-left: 0.5rem;
+}
+
+#center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 2%;
+}
+
+#profile {
+  width: 60%;
+  padding: 2%;
+  border: 2px solid #BCC8FF;
+  border-radius: 1rem;
+}
+
+#user-row {
+  display: flex;
+}
+
+#picture-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20%;
+}
+
+#picture {
+  width: 80%;
+  border-radius: 100%;
+}
+
+#user-data {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+#bio-btn {
+  width: 25%;
+  margin-left: auto;
 }
 
 body {

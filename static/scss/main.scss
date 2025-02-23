@@ -5,7 +5,8 @@
 @import './form';
 @import './login';
 @import './register';
+@import './profile';
 
 body {
-    background-color: #E8FFFC;
+    background-color: $primary-color;
 }

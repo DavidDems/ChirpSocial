@@ -1,0 +1,44 @@
+// content below banner-nav
+#center-content {
+    @include flex-center;
+    margin: auto;
+    margin-top: 2%;
+}
+
+// profile section
+#profile {
+    width: 60%;
+    padding: 2%;
+    border: 2px solid $fourth-color;
+    border-radius: 1rem;
+}
+
+// profile overview row
+#user-row {
+    display: flex;
+}
+
+
+// profile picture and displayname
+#picture-name {
+    @include flex-center;
+    flex-direction: column;
+    width: 20%;
+}
+#picture {
+    width: 80%;
+    border-radius: 100%;
+}
+
+// user data
+#user-data {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+// bio and follow / edit area
+#bio-btn {
+    width: 25%;
+    margin-left: auto;
+}
