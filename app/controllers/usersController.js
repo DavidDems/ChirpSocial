@@ -215,7 +215,7 @@ const loginUser = async (req, res) => {
 
     return res.status(200).json({
       message: 'Login succefull',
-      token, // send to frontend
+      token,
       user: {
         userId: user.userId,
         username: user.username,
@@ -230,6 +230,30 @@ const loginUser = async (req, res) => {
   }
 };
 
+// Upload a Profile Picture
+
+const uploadProfilePicture = async (req, res) => {
+  console.log(`recieved request to upload profile picture for user ID `);
+  try {
+    const { id } = req.params;
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ message: 'No uploaded file' });
+    }
+
+    const imageUrl = file.path;
+    await User.update({ profilePicture: imageUrl }, { where: { userId: id } });
+    return res.status(200).json({
+      message: 'Profile Picture updated succefully',
+      profilePicture: imageUrl,
+    });
+  } catch (err) {
+    log.error(`Error uploadin picture`);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -237,4 +261,5 @@ module.exports = {
   updateUserProfile,
   registerUser,
   loginUser,
+  uploadProfilePicture,
 };
