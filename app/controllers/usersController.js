@@ -1,3 +1,4 @@
+// const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Op } = require('sequelize');
 const User = require('../models/usersModel');
@@ -202,10 +203,17 @@ const loginUser = async (req, res) => {
       return res.status(401).json({ message: 'Ivalid email or password' });
     }
 
-    console.log(`User logged in ${email}`);
+    // const token = jwt.sign(
+    //   { userId: user.userId, username: user.username },
+    //   process.env.JWT_SECRET,
+    //   { expiresIn: process.env.JWT_EXPIRES }
+    // );
+
+    console.log(`User logged in ${user.username}`);
 
     return res.status(200).json({
       message: 'Login succefull',
+      // token,
       user: {
         userId: user.userId,
         username: user.username,
