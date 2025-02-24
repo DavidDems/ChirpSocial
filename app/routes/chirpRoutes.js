@@ -13,6 +13,8 @@ const {
   loginUser,
 } = require('../controllers/usersController.js');
 
+const authenticateUser = require('../middleware/authMiddleware.js');
+
 const router = express.Router();
 
 // Registe a new user with validation
@@ -28,10 +30,10 @@ router.get('/users', getAllUsers);
 router.get('/users/search', searchUser);
 
 // Get User by ID
-router.get('/users/:id', getUserById);
+router.get('/users/:id', authenticateUser, getUserById);
 
-// Update user Profile
-router.patch('/users/:id', updateUserProfile);
+// Update user Profile (authentication needed)
+router.patch('/users/:id', authenticateUser, updateUserProfile);
 // Delete User by ID
 // router.delete('/users/:id', deleteUser);
 

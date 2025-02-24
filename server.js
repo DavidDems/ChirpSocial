@@ -3,6 +3,7 @@ const cors = require('cors');
 const sequelize = require('./app/config/dbConnection.js');
 const chirpRoutes = require('./app/routes/chirpRoutes.js');
 
+require('dotenv').config();
 const app = express();
 
 var corsOptions = {
