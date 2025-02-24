@@ -15,7 +15,7 @@ const {
 
 const router = express.Router();
 
-// Register a new user with validation
+// Registe a new user with validation
 router.post('/users/register', validateRegistration, registerUser);
 
 // User login with validation

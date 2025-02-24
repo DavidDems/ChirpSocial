@@ -10,10 +10,6 @@
 
 // module.exports = log;
 
-const log = require('npmlog');
-const fs = require('fs');
-const path = require('path');
-
 const logsDir = path.join(__dirname, '../../logs');
 const logFilePath = path.join(logsDir, 'error.log');
 
