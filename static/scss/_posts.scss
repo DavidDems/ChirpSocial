@@ -1,0 +1,89 @@
+// removing default margin for p elements
+p {
+    margin-bottom: 0;
+}
+
+// posts area
+.posts-area {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 4%;
+}
+
+// posts links area for profile and home
+.posts-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+}
+.posts-links p {
+    padding: 0 1%;
+    border-bottom: 2px solid transparent;
+}
+.posts-links p:hover{
+    border-bottom: 1px solid $third-color;
+    cursor: pointer;
+}
+.home-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40%;
+}
+.home-links p {
+    padding: 0 1%;
+    border-bottom: 2px solid transparent;
+}
+.home-links p:hover{
+    border-bottom: 1px solid $third-color;
+    cursor: pointer;
+}
+
+// posts content area
+.posts-list {
+    border: 2px solid $third-color;
+    border-radius: 0.5rem;
+}
+.posts {
+    padding: 1.5% 3%;
+    display: flex;
+    border-bottom: 2px solid $third-color;
+}
+// author of post profile image
+.post-profile {
+    width: 10%;
+}
+
+// post content
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.post-data {
+    display: flex;
+}
+.post-name {
+    font-weight: bold;
+}
+.post-date {
+    margin-left: 2%;
+}
+.post-content {
+    margin-top: 0.5%;
+}
+.post-interact a {
+    margin-right: 4%;
+}
+.post-interact a:hover {
+    cursor: pointer;
+}
+
+// create reply area under original post
+#create-reply {
+    display: flex;
+    align-items: center;
+}
+#reply-input {
+    display: flex;
+    flex-direction: row;
+}

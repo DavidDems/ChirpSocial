@@ -79,3 +79,41 @@ Working on:
 Todo:
 -protect routes
 -controller testing with postman
+
+
+2025/2/24 David Demers
+Completed:
+-User profile page without api calls
+-User home page without api calls
+Working on:
+-Search page without api calls
+-View posts and its replies page withou api calls
+Todo:
+-Integrate api calls for all pages
+-Authenticate user login
+-Authenticate user update profile
+-Authenticate user delete post
+
+
+2025/2/24 Louis Chartier
+Completed:
+-Search posts
+-Posts controller finalized
+-Postman testing
+Working on:
+-Image storage
+-Make small changes to create posts
+Todo:
+-Have other project members test controller
+
+
+2025/2/24 Rima Dagher
+Completed:
+-Implemented JWT authentication
+-Fixed Get/users/:id
+-Fixed PATCH/users/id
+-Tested API Requests
+Working on:
+-Cloudinary to upload images
+Todo:
+-Start follow table

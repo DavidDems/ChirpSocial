@@ -19,13 +19,13 @@
         
         <div id="nav">
             <div id="home">
-                <a><i class="bi bi-house"></i></a>
+                <a href="home.html"><i class="bi bi-house"></i></a>
             </div>
             <div id="search">
-                <a><i class="bi bi-search"></i></a>
+                <a href="search.html"><i class="bi bi-search"></i></a>
             </div>
             <div id="followers">
-                <a><i class="bi bi-people-fill"></i></a>
+                <a href="profile.html"><i class="bi bi-people-fill"></i></a>
             </div>
         </div>
         
@@ -34,41 +34,78 @@
         </div>
     </div>
 
-    <div id="center-content">
+    <div class="center-content">
         <div id="profile">
             
             <div id="user-row">
                 <div id="picture-name">
-                    <img id="picture" src="../../medias/defaultUser.webp">
-                    <p>@JohnDoe</p>
+                    <img class="picture" src="../../medias/defaultUser.webp">
+                    <p id="profile-name">@JohnDoe</p>
                 </div>
 
-                <div id="user-data">
-                    <p id="date-joined">Joined February 22nd 2025</p>
-                    <p id="following">1234 Following</p>
-                    <p id="followers">12.78K Followers</p>
-                </div>
-
-                <div id="bio-btn">
+                <div id="bio">
                     <p>Former president of earth.</p>
+                </div>
+
+                <div id="profile-btn">
                     <a><button id="followBtn" type="button">Follow</button></a>
                 </div>
             </div>
-        
-            <div id="posts">
-                <div id="all-posts">
 
-                </div>
-                <div id="reposts">
-    
-                </div>
-                <div id="media">
-    
-                </div>
+            <div id="user-data">
+                <p id="date-joined">Joined February 22nd 2025</p>
+                <p id="following">1234 Following</p>
+                <p id="followers">12.78K Followers</p>
             </div>
 
-            <div id="content">
+            <div class="posts-area">
+                <div class="posts-links">
+                    <p id="all-posts">Posts</p>
+                    <p id="replies">Replies</p>
+                    <p id="reposts">Reposts</p>
+                    <p id="media">Media</p>
+                </div>
 
+                <div class="posts-list">
+                    <div id="post0" class="posts">
+                        <div class="post-profile">
+                            <img class="picture" src="../../medias/defaultUser.webp">
+                        </div>
+                        <div class="content">
+                            <div class="post-data">
+                                <p id="post0-name" class="post-name">@JohnDoe</p>
+                                <p id="post0-date" class="post-date">February 22nd 2025</p>
+                            </div>
+                            <div class="post-content">
+                                <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
+                            </div>
+                            <div class="post-interact">
+                                <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
+                                <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
+                                <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="post1" class="posts">
+                        <div class="post-profile">
+                            <img class="picture" src="../../medias/defaultUser.webp">
+                        </div>
+                        <div class="content">
+                            <div class="post-data">
+                                <p id="post0-name" class="post-name">@JohnDoe</p>
+                                <p id="post0-date" class="post-date">February 22nd 2025</p>
+                            </div>
+                            <div class="post-content">
+                                <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
+                            </div>
+                            <div class="post-interact">
+                                <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
+                                <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
+                                <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

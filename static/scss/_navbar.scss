@@ -18,20 +18,23 @@
 
 // styling nav links
 #nav {
+    height: 95%;
     display: flex;
     justify-content: center;
     margin: auto;
 }
 #nav div {
     margin: 30%;
-    margin-top: 5%;
+    margin-top: 15%;
     font-size: 2rem;
     color: $secondary-color;
     padding: 0 2%;
-    padding-bottom: 3%;
 }
 #nav div:hover {
     border-bottom: 2px solid $third-color;
+}
+#nav div a, #nav div a:visited, #nav div a:active {
+    color: $secondary-color;
 }
 
 // making profile link equal width to banner to auto margin the nav links
