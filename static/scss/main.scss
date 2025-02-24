@@ -3,10 +3,18 @@
 @import './mixins';
 @import './navbar';
 @import './form';
+@import './posts';
 @import './login';
 @import './register';
 @import './profile';
 
 body {
     background-color: $primary-color;
+}
+
+// content below banner-nav
+.center-content {
+    @include flex-center;
+    margin: auto;
+    margin-top: 2%;
 }

@@ -1,10 +1,3 @@
-// content below banner-nav
-#center-content {
-    @include flex-center;
-    margin: auto;
-    margin-top: 2%;
-}
-
 // profile section
 #profile {
     width: 60%;
@@ -25,7 +18,7 @@
     flex-direction: column;
     width: 20%;
 }
-#picture {
+.picture {
     width: 80%;
     border-radius: 100%;
 }
@@ -34,11 +27,32 @@
 #user-data {
     display: flex;
     flex-direction: column;
+    padding-left: 2%;
+    margin-top: 0.5%;
+}
+#user-data p {
+    margin-top: 0.5%;
+}
+
+// user bio
+#bio {
     margin: auto;
 }
 
-// bio and follow / edit area
-#bio-btn {
-    width: 25%;
-    margin-left: auto;
+// follow / edit area
+#profile-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 15%;
+    margin-right: 5%;
+}
+#followBtn {
+    background-color: $fourth-color;
+    padding: 7.5%;
+    border-radius: 0.75rem;
+}
+#followBtn:hover {
+    border: 2px solid $third-color;
 }
