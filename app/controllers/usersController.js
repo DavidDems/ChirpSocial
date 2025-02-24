@@ -4,7 +4,7 @@ const User = require('../models/usersModel');
 const log = require('../config/logger');
 
 // Get all users
-export const getAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll({
       attributes: [
@@ -28,7 +28,7 @@ export const getAllUsers = async (req, res) => {
 };
 
 // Get user by ID
-export const getUserById = async (req, res) => {
+const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findByPk(id, {
@@ -47,7 +47,7 @@ export const getUserById = async (req, res) => {
 
     if (!user) {
       log.warn(`User with ID ${id} not found`);
-      res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     console.log('user', user);
@@ -58,7 +58,8 @@ export const getUserById = async (req, res) => {
   }
 };
 
-export const searchUser = async (req, res) => {
+// Search user by(username and displayname)
+const searchUser = async (req, res) => {
   try {
     const { username, displayname } = req.query;
 
@@ -71,9 +72,9 @@ export const searchUser = async (req, res) => {
     const users = await User.findAll({
       where: {
         [Op.or]: [
-          username ? { username: { [Op.iLike]: `%${username}%` } } : null,
+          username ? { username: { [Op.like]: `%${username}%` } } : null,
           displayname
-            ? { displayname: { [Op.iLike]: `%${displayname}%` } }
+            ? { displayname: { [Op.like]: `%${displayname}%` } }
             : null,
         ].filter(Boolean),
       },
@@ -94,16 +95,21 @@ export const searchUser = async (req, res) => {
 };
 
 // Update uers profile
-export const updateUserProfile = async (req, res) => {
+const updateUserProfile = async (req, res) => {
   try {
+    console.log(`Received request to update user with ID: ${req.params.id}`);
+
     const { id } = req.params;
+    if (!id || isNaN(id)) {
+      return res.status(400).json({ message: 'Invalid user ID' });
+    }
     const { displayname, profilePicture, bio } = req.body;
 
     const user = await User.findByPk(id);
 
     if (!user) {
       log.warn(`User with ID ${id} not found`);
-      res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     await user.update({
@@ -121,7 +127,7 @@ export const updateUserProfile = async (req, res) => {
 };
 
 // Register a User
-export const registerUser = async (req, res) => {
+const registerUser = async (req, res) => {
   try {
     const {
       username,
@@ -131,6 +137,10 @@ export const registerUser = async (req, res) => {
       profilePicture,
       dateOfBirth,
     } = req.body;
+
+    if (!username || !email || !password || !displayname || !dateOfBirth) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
 
     const existingUser = await User.findOne({ where: { username } });
     if (existingUser) {
@@ -175,7 +185,7 @@ export const registerUser = async (req, res) => {
 };
 
 // Login User
-export const loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -188,7 +198,7 @@ export const loginUser = async (req, res) => {
     const matchPass = await bcrypt.compare(password, user.password);
 
     if (!matchPass) {
-      log.warn(`Invalid email or password ${email}`);
+      log.warn('Invalid login attempt');
       return res.status(401).json({ message: 'Ivalid email or password' });
     }
 
@@ -208,4 +218,13 @@ export const loginUser = async (req, res) => {
     log.error(`Error registering user `, err.message);
     return res.status(500).json({ message: 'Internal server error' });
   }
+};
+
+module.exports = {
+  getAllUsers,
+  getUserById,
+  searchUser,
+  updateUserProfile,
+  registerUser,
+  loginUser,
 };

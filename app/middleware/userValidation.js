@@ -45,7 +45,7 @@ exports.validateRegistration = [
 exports.validateLogin = [
   body('email').isEmail().withMessage('Invalid email format'),
 
-  body('password').isEmpty().withMessage('Password is required'),
+  body('password').notEmpty().withMessage('Password is required'),
 
   // Middleware to chechk validation errors
   (req, res, next) => {

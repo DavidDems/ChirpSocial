@@ -3,6 +3,7 @@ const {
   validateRegistration,
   validateLogin,
 } = require('../middleware/userValidation.js');
+
 const {
   getAllUsers,
   getUserById,
@@ -23,11 +24,11 @@ router.post('/users/login', validateLogin, loginUser);
 // Get all Users
 router.get('/users', getAllUsers);
 
-// Get User by ID
-router.get('/users/:id', getUserById);
-
 // Search Users by (usernme or displayname)
 router.get('/users/search', searchUser);
+
+// Get User by ID
+router.get('/users/:id', getUserById);
 
 // Update user Profile
 router.patch('/users/:id', updateUserProfile);
