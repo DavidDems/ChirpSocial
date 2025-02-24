@@ -22,11 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('static'));
 
 // Load routes
-// require('./app/routes/chirpPostRoutes.js')(app);
-
-//
+require('./app/routes/chirpPostRoutes.js')(app);
 // Use routes
 app.use('/api', chirpRoutes);
+
 // Sync the database
 sequelize
   .sync({ alter: false })

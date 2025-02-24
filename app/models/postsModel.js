@@ -1,12 +1,16 @@
-module.exports = (sequelize, Sequelize) => {
-    const Post = sequelize.define("Post", {
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/dbConnection');
+
+const Post = sequelize.define(
+    "Post", 
+    {
         postId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
         publisherId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'Users',
@@ -14,14 +18,14 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         replyId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'Posts',
                 key: 'postId'
             }
         },
         originalReplyId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: true,
             references: {
                 model: 'Posts',
@@ -29,33 +33,30 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         repostId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'Posts',
                 key: 'postId'
             }
         },
-        postHeader: {
-            type: Sequelize.STRING(255),
-            allowNull: false
-        },
         postTxt: {
-            type: Sequelize.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         postImg: {
-            type: Sequelize.BLOB('medium'),
+            type: DataTypes.BLOB('medium'),
         },
         postDate: {
-            type: Sequelize.DATE,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+            type: DataTypes.DATE,
+            //defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
         },
         likes: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: 0,
         }, 
-    },{
-        timestamps: false,
-    });
-    return Post;
-};
+    },
+    {
+    timestamps: false,
+});
+
+module.exports = Post;

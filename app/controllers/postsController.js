@@ -1,15 +1,9 @@
-const sequelize = require("../config/dbConnection.js");
-const db = require("../config/dbConnection");
 const { Op } = require('sequelize');
-const Post = db.Posts;
+const Post = require("../models/postsModel.js");
 const npmlog = require("npmlog");
 
 const validationPost = (post) => {
     if (!post.replyId && !post.repostId) {
-        if (!post.postHeader) {
-            return "Post must have a header.";
-        }
-
         if (!post.postTxt && !post.postImg) {
             return "Post must have either text or an image.";
         } 
@@ -17,10 +11,6 @@ const validationPost = (post) => {
         if (!post.postTxt && !post.postImg) {
             return "Reply or Repost must have either text or an image.";
         }
-    }
-
-    if (!/^[A-Za-z0-9\-. !]{1,255}$/.test(post.postHeader)) {
-        return "Post Header can be between 1 and 255 characters while only containing letters, digits, dashes, dots, spaces, and exclamation points.";
     }
 
     if (!/^[A-Za-z0-9\-. !]{0,280}$/.test(post.postTxt)) {
