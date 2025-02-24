@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+@import './variables';
+@import './mixins';
+@import './navbar';
+@import './form';
+@import './login';
+@import './register';
+@import './profile';
+
+body {
+    background-color: $primary-color;
+}

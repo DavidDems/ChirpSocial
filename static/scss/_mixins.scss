@@ -1,0 +1,55 @@
+/* Mixin to set content to flex and center it */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Mixin to set content to grid and center it */
+@mixin grid-center {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Margin and padding mixins to quickly and easily set them */
+/* smt: small tall, smw: small wide, md: medium, lg: large */
+@mixin smt-margin {
+    margin: 1.5rem 1rem;
+}
+@mixin mdt-margin {
+    margin: 3rem 1.5rem;
+}
+@mixin lgt-margin {
+    margin: 4rem 2rem;
+}
+
+@mixin smw-margin {
+    margin: 1rem 1.5rem;
+}
+@mixin mdw-margin {
+    margin: 1.5rem 3rem;
+}
+@mixin lgw-margin {
+    margin: 2rem 4rem;
+}
+
+@mixin smt-padding {
+    padding: 1.5rem 1rem;
+}
+@mixin mdt-padding {
+    padding: 3rem 1.5rem;
+}
+@mixin lgt-padding {
+    padding: 4rem 2rem;
+}
+
+@mixin smw-padding {
+    padding: 1rem 1.5rem;
+}
+@mixin mdw-padding {
+    padding: 1.5rem 3rem;
+}
+@mixin lgw-padding {
+    padding: 2rem 4rem;
+}

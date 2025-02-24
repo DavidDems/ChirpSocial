@@ -17,4 +17,4 @@ module.exports = (app) => {
     router.get('/search', posts.search);
    
     app.use("/api/posts", router);
-  };
+};
