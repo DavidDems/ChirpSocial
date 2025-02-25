@@ -45,11 +45,10 @@ const Post = sequelize.define(
             allowNull: false
         },
         postImg: {
-            type: DataTypes.BLOB('medium'),
+            type: DataTypes.STRING,
         },
         postDate: {
-            type: DataTypes.DATE,
-            //defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+            type: DataTypes.DATE,           
         },
         likes: {
             type: DataTypes.INTEGER,
