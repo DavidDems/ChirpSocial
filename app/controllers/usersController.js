@@ -4,6 +4,8 @@ const { Op } = require('sequelize');
 const User = require('../models/usersModel');
 const log = require('../config/logger');
 
+const JWT_SECRET = process.env.JWT_SECRET || 'vypoConpT2Ck5m06R53p';
+
 // Get all users
 const getAllUsers = async (req, res) => {
   try {
@@ -151,7 +153,7 @@ const registerUser = async (req, res) => {
     }
     const existingEmail = await User.findOne({ where: { email } });
     if (existingEmail) {
-      console.log('Email already registeres', email);
+      console.log('Email already registered', email);
       return res.status(400).json({ message: 'Email already registered' });
     }
 
@@ -201,20 +203,20 @@ const loginUser = async (req, res) => {
 
     if (!matchPass) {
       log.warn('Invalid login attempt');
-      return res.status(401).json({ message: 'Ivalid email or password' });
+      return res.status(401).json({ message: 'Invalid email or password' });
     }
 
     // server create the token
     const token = jwt.sign(
       { userId: user.userId, username: user.username },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRES }
+      JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES || '1h'}
     );
 
     console.log(`User logged in ${user.username}`);
 
     return res.status(200).json({
-      message: 'Login succefull',
+      message: 'Login successful',
       token, // send to frontend
       user: {
         userId: user.userId,

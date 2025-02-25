@@ -1,5 +1,12 @@
-#register-link {
+#register {
     grid-column: 1 / span 2;
     margin: auto;
     margin-bottom: 0.5rem;
+}
+#register-link {
+    color: blue;
+    text-decoration: underline;
+}
+#register-link:hover {
+    cursor: pointer;
 }
