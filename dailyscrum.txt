@@ -117,3 +117,40 @@ Working on:
 -Cloudinary to upload images
 Todo:
 -Start follow table
+
+
+2025/2/25 David Demers
+Completed:
+-createPost.html page without api
+-search.html page without api
+-reply to post page without api
+-login page with api authentication
+-register page with api call and input validation
+Working on:
+-getting posts for home page
+-create posts
+-create reply
+Todo:
+-Search users
+-Search posts
+-Follow user
+
+
+2025/2/25 Louis Chartier
+Completed:
+-All adjustments to posts
+-Image upload for post
+Working on:
+-Testing image upload for post
+Todo:
+-Project slides
+
+
+2025/2/25 Rima Dagher
+Completed:
+-Created upload.js middleware to upload and store images
+-POST /users/:id/uploadProfilePicture now stores the Cloudinary URL.
+-Tested with postman with authentication
+Wokring on:
+-Implementing followers table
+Todo:

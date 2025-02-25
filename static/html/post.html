@@ -21,6 +21,9 @@
             <div id="home">
                 <a href="home.html"><i class="bi bi-house"></i></a>
             </div>
+            <div id="createPost">
+                <a href="createPost.html"><i class="bi bi-plus-circle"></i></a>
+            </div>
             <div id="search">
                 <a href="search.html"><i class="bi bi-search"></i></a>
             </div>
@@ -30,13 +33,13 @@
         </div>
         
         <div id="profile-icon">
-            <a><img id="icon" src="../../medias/defaultUser.webp"></a>
+            <a href="profile.html"><img id="icon" src="../../medias/defaultUser.webp"></a>
         </div>
     </div>
 
     <div class="center-content">
         <div class="posts-area" style="margin-top: 0;">
-
+            
             <div class="posts-list">
                 <div id="post0" class="posts">
                     <div class="post-profile">
@@ -51,9 +54,9 @@
                             <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
                         </div>
                         <div class="post-interact">
-                            <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
-                            <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
-                            <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
+                            <a id="post0-reply" class="reply-icon"><i class="bi bi-chat"></i>135</a>
+                            <a id="post0-repost" class="repost-icon"><i class="bi bi-repeat"></i>42</a>
+                            <a id="post0-like" class="like-icon"><i class="bi bi-heart"></i>1.2K</a>
                         </div>
                     </div>
                 </div>
@@ -62,8 +65,48 @@
                         <img class="picture" src="../../medias/defaultUser.webp">
                     </div>
                     <div id="reply-input" class="content">
-                        <p>Post your reply</p>
-                        <button>Reply</button>
+                        <input id="reply-txt" type="text" placeholder="Post your reply">
+                        <div id="reply-btn">
+                            <button>Reply</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="post1" class="posts">
+                    <div class="post-profile">
+                        <img class="picture" src="../../medias/defaultUser.webp">
+                    </div>
+                    <div class="content">
+                        <div class="post-data">
+                            <p id="post1-name" class="post-name">@JohnDoe</p>
+                            <p id="post1-date" class="post-date">February 22nd 2025</p>
+                        </div>
+                        <div class="post-content">
+                            <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
+                        </div>
+                        <div class="post-interact">
+                            <a id="post1-reply" class="reply-icon"><i class="bi bi-chat"></i>135</a>
+                            <a id="post1-repost" class="repost-icon"><i class="bi bi-repeat"></i>42</a>
+                            <a id="post1-like" class="like-icon"><i class="bi bi-heart"></i>1.2K</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="post2" class="posts">
+                    <div class="post-profile">
+                        <img class="picture" src="../../medias/defaultUser.webp">
+                    </div>
+                    <div class="content">
+                        <div class="post-data">
+                            <p id="post2-name" class="post-name">@JohnDoe</p>
+                            <p id="post2-date" class="post-date">February 22nd 2025</p>
+                        </div>
+                        <div class="post-content">
+                            <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
+                        </div>
+                        <div class="post-interact">
+                            <a id="post2-reply" class="reply-icon"><i class="bi bi-chat"></i>135</a>
+                            <a id="post2-repost" class="repost-icon"><i class="bi bi-repeat"></i>42</a>
+                            <a id="post2-like" class="like-icon"><i class="bi bi-heart"></i>1.2K</a>
+                        </div>
                     </div>
                 </div>
             </div>
