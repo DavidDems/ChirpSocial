@@ -6,11 +6,17 @@ module.exports = (app) => {
     router.get("/", posts.findAll);
 
     // GET post(s) by search
-    router.get('/search', posts.search);
+    router.get("/search", posts.search);
 
     // GET a single Post by ID
     router.get("/:id", posts.findOne);
   
+    // GET num of replies
+    router.get("/replyCount/:id", posts.getReplyCount);
+
+    // GET num of reposts
+    router.get("/repostCount/:id", posts.getRepostCount);
+
     // POST a new Post
     router.post("/", posts.create);
 

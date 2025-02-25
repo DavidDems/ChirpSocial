@@ -172,12 +172,40 @@
 #posts-list {
   border: 2px solid #AA76CD;
   border-radius: 0.5rem;
+  margin-bottom: 5%;
 }
 
 .posts {
   padding: 1.5% 3%;
   display: flex;
   border-bottom: 2px solid #AA76CD;
+}
+
+.reply-post, .repost-post {
+  padding: 1.5% 3%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #AA76CD;
+}
+
+.reply, .repost {
+  display: flex;
+  margin-bottom: 1%;
+}
+
+.repost {
+  margin-left: 1%;
+}
+
+.repost .post-content {
+  margin-left: 1%;
+}
+
+.replied-post, .reposted-post {
+  padding: 1.5% 3%;
+  display: flex;
+  border: 2px solid #AA76CD;
+  border-radius: 0.5rem;
 }
 
 .post-profile {
@@ -194,19 +222,16 @@
   display: flex;
 }
 
-.post-name {
-  font-weight: bold;
-}
-
 .post-name:hover {
   cursor: pointer;
 }
 
 .post-date {
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 .post-content {
+  display: flex;
   margin-top: 0.5%;
 }
 
@@ -223,37 +248,37 @@
   text-decoration: none;
 }
 
-#create-reply {
+#create-reply, #create-post {
   display: flex;
   align-items: center;
 }
 
-#reply-input {
+#reply-input, #post-input {
   display: flex;
   flex-direction: row;
 }
 
-#reply-btn {
+#reply-btn, #post-btn {
   margin-left: auto;
 }
 
-#reply-btn button {
+#reply-btn button, #post-btn button {
   background-color: #BCC8FF;
   padding: 15% 20%;
   border-radius: 2rem;
 }
 
-#reply-btn button:hover {
+#reply-btn button:hover, #post-btn button:hover {
   border: 2px solid #AA76CD;
 }
 
-#reply-txt {
+#reply-txt, #post-txt {
   background-color: #E8FFFC;
   border: none;
   width: 100%;
 }
 
-#reply-txt:focus {
+#reply-txt:focus, #post-txt:focus {
   outline: none;
 }
 
@@ -325,13 +350,13 @@
   margin-right: 5%;
 }
 
-#followBtn {
+#editBtn {
   background-color: #BCC8FF;
-  padding: 7.5%;
-  border-radius: 0.75rem;
+  padding: 15% 25%;
+  border-radius: 2rem;
 }
 
-#followBtn:hover {
+#editBtn:hover {
   border: 2px solid #AA76CD;
 }
 
