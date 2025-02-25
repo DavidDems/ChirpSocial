@@ -1,29 +1,26 @@
-module.exports = (app) => {
-    const posts = require("../controllers/postsController.js");
-    const router = require("express").Router();
+const express = require('express');
 
-    // GET all Post
-    router.get("/", posts.findAll);
+const authenticateUser = require('../middleware/authMiddleware.js');
+const { uploadPost } = require('../middleware/upload.js');
 
-    // GET post(s) by search
-    router.get("/search", posts.search);
+const {
+    createPost,
+    searchPost,
+    getAllPosts,
+    getOnePost,
+    deletePost,
+} = require("../controllers/postsController.js");
 
-    // GET a single Post by ID
-    router.get("/:id", posts.findOne);
-  
-    // GET num of replies
-    router.get("/replyCount/:id", posts.getReplyCount);
+const router = express.Router();
 
-    // GET num of reposts
-    router.get("/repostCount/:id", posts.getRepostCount);
+router.post("/posts", authenticateUser, uploadPost.single("postImg"), createPost);
 
-    // POST a new Post
-    router.post("/", posts.create);
+router.get("/posts/search", searchPost);
 
-    // DELETE a Post
-    router.delete("/:id", posts.delete);
+router.get("/posts", getAllPosts);
 
-    
-   
-    app.use("/api/posts", router);
-};
+router.get("/posts/:id", getOnePost);
+
+router.delete("/posts/:id", deletePost);
+
+module.exports = router;

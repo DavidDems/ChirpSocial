@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const sequelize = require('./app/config/dbConnection.js');
 const chirpRoutes = require('./app/routes/chirpRoutes.js');
+const postRoutes = require('./app/routes/chirpPostRoutes.js')
 
 require('dotenv').config();
 const app = express();
@@ -27,12 +28,9 @@ app.get('/', (req, res) => {
 // Serve static files from the "static" directory
 app.use(express.static(path.join(__dirname, 'static')));
 
-// Load routes
-require('./app/routes/chirpPostRoutes.js')(app);
-
 //
 // Use routes
-app.use('/api', chirpRoutes);
+app.use('/api', chirpRoutes, postRoutes);
 // Sync the database
 sequelize
   .sync({ alter: false })
