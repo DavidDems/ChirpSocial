@@ -29,7 +29,7 @@ const User = sequelize.define(
       validate: { isEmail: true },
     },
     profilePicture: {
-      type: DataTypes.BLOB('medium'),
+      type: DataTypes.STRING,
       allowNull: true,
     },
     bio: {
