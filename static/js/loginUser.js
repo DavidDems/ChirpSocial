@@ -51,7 +51,7 @@ $("#loginBtn").on("click", function () {
         data: JSON.stringify({ email, password }),
         success: function(response) {
             // On successful login, store user data in session storage
-            if (response.message === "Login successful") {
+            if (response.message === "Login succefull") {
                 // Store user data in session storage
                 sessionStorage.setItem("currentUser", JSON.stringify(response.user));
 
