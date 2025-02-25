@@ -1,73 +1,76 @@
-// function to show the modal with an error message
-function showModal(message) {
+$(document).ready(function() {
+    // function to show the modal with an error message
+    function showModal(message) {
 
-    $("#error").text(message);
-    $("#modal").css("display", "block");
+        $("#error").text(message);
+        $("#modal").css("display", "block");
 
-    $("#close").on("click", function() {
-        $("#modal").css("display", "none");
-    });
-}
-
-// function to validate the password length
-function validatePasswordLength(password) {
-    return password.length >= 8; // Password must be at least 8 characters
-}
-
-// live validation for the password field
-$("#password").on("input", function() {
-
-    const password = $(this).val();
-    const $errorMessage = $(this).next("p");
-
-    if (!validatePasswordLength(password)) {
-        $errorMessage.text("Minimum 8 characters.").css("color", "red");
-    } else {
-        $errorMessage.text("").css("color", "");
-    }
-});
-
-$("#register-link").on("click", function () {
-    window.location.href = "../html/register.html";
-})
-
-$("#loginBtn").on("click", function () {
-    const email = $("#email").val();
-    const password = $("#password").val();
-    let isValid = true; // assume validation is successful initially
-
-    // validate password length
-    if (!validatePasswordLength(password)) {
-        showModal("Password must be at least 8 characters long.", false);
-        isValid = false;
-        return;
+        $("#close").on("click", function() {
+            $("#modal").css("display", "none");
+        });
     }
 
-    // make an AJAX call to the login endpoint
-    $.ajax({
-        url: "/api/users/login", // Replace with your actual login endpoint
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({ email, password }),
-        success: function(response) {
-            // On successful login, store user data in session storage
-            if (response.message === "Login succefull") {
-                // Store user data in session storage
-                sessionStorage.setItem("currentUser", JSON.stringify(response.user));
+    // function to validate the password length
+    function validatePasswordLength(password) {
+        return password.length >= 8; // Password must be at least 8 characters
+    }
 
-                // Redirect to home.html
-                window.location.href = "../html/home.html";
-            } else {
-                showModal(response.message || "Incorrect email or password."); // Show error message
-            }
-        },
-        error: function(xhr, status, error) {
-            // Handle errors (e.g., network issues, server errors)
-            if (xhr.responseJSON && xhr.responseJSON.message) {
-                showModal(xhr.responseJSON.message); // Show server error message
-            } else {
-                showModal("An error occurred. Please try again."); // Generic error message
-            }
+    // live validation for the password field
+    $("#password").on("input", function() {
+
+        const password = $(this).val();
+        const $errorMessage = $(this).next("p");
+
+        if (!validatePasswordLength(password)) {
+            $errorMessage.text("Minimum 8 characters.").css("color", "red");
+        } else {
+            $errorMessage.text("").css("color", "");
         }
+    });
+
+    // link to user registration page
+    $("#register-link").on("click", function() {
+        window.location.href = "../html/register.html";
+    })
+
+    // login btn on click
+    $("#loginBtn").on("click", function() {
+        const email = $("#email").val();
+        const password = $("#password").val();
+        let isValid = true;
+
+        // validate password length
+        if (!validatePasswordLength(password)) {
+            showModal("Password must be at least 8 characters long.", false);
+            isValid = false;
+            return;
+        }
+
+        // make an AJAX call to the login route
+        $.ajax({
+            url: "/api/users/login",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ email, password }),
+            success: function(response) {
+                if (response.message === "Login succefull") {
+                    // store user data in session storage
+                    sessionStorage.setItem("currentUser", JSON.stringify(response.user));
+                    // store user token in session storage
+                    sessionStorage.setItem("token", response.token);
+                    // bring to home.html
+                    window.location.href = "../html/home.html";
+                } else {
+                    showModal(response.message || "Incorrect email or password.");
+                }
+            },
+            error: function(xhr, status, error) {
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    showModal(xhr.responseJSON.message);
+                } else {
+                    showModal("An error occurred. Please try again.");
+                }
+            }
+        });
     });
 });

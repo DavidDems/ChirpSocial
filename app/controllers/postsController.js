@@ -93,7 +93,33 @@ const getOnePost = async (req, res) => {
         res.status(200).send(posts);
     } catch (err) {
         npmlog.error("DB", "Error retriving the post.", err);
-        res.status(500).send({ message: "Error retrieving auction."});
+        res.status(500).send({ message: "Error retrieving post."});
+    }
+};
+
+const getReplyCount = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const count = await Post.count({
+            where: { replyId: id },
+        });
+        res.status(200).send({ count });
+    } catch (err) {
+        npmlog.error("DB", "Error retrieving reply count", err);
+        res.status(500).send({ message: "Error retrieving reply count." });
+    }
+};
+
+const getRepostCount = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const count = await Post.count({
+            where: { repostId: id },
+        });
+        res.status(200).send({ count });
+    } catch (err) {
+        npmlog.error("DB", "Error retrieving repost count", err);
+        res.status(500).send({ message: "Error retrieving repost count." });
     }
 };
 
