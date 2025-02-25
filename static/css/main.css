@@ -169,7 +169,7 @@
   cursor: pointer;
 }
 
-.posts-list {
+#posts-list {
   border: 2px solid #AA76CD;
   border-radius: 0.5rem;
 }
