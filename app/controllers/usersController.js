@@ -4,7 +4,7 @@ const { Op } = require('sequelize');
 const User = require('../models/usersModel');
 const log = require('../config/logger');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'vypoConpT2Ck5m06R53p';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Get all users
 const getAllUsers = async (req, res) => {
@@ -209,8 +209,8 @@ const loginUser = async (req, res) => {
     // server create the token
     const token = jwt.sign(
       { userId: user.userId, username: user.username },
-      JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRES || '1h'}
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES }
     );
 
     console.log(`User logged in ${user.username}`);
