@@ -1,5 +1,5 @@
 const express = require('express');
-const upload = require('../middleware/upload.js');
+
 const {
   validateRegistration,
   validateLogin,
@@ -17,6 +17,8 @@ const {
   loginUser,
 } = require('../controllers/usersController.js');
 
+const { uploadProfile } = require('../middleware/upload.js');
+
 const router = express.Router();
 
 // Registe a new user with validation
@@ -28,8 +30,8 @@ router.post('/users/login', validateLogin, loginUser);
 // Upload profile picture
 router.post(
   '/users/:id/uploadProfilePicture',
-  authenticateUser,
-  upload.single('profilePicture'),
+
+  uploadProfile.single('profilePicture'),
   uploadProfilePicture
 );
 
