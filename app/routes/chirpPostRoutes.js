@@ -1,10 +1,13 @@
 module.exports = (app) => {
     const posts = require("../controllers/postsController.js");
     const router = require("express").Router();
-  
+
     // GET all Post
     router.get("/", posts.findAll);
-  
+
+    // GET post(s) by search
+    router.get('/search', posts.search);
+
     // GET a single Post by ID
     router.get("/:id", posts.findOne);
   
@@ -14,7 +17,7 @@ module.exports = (app) => {
     // DELETE a Post
     router.delete("/:id", posts.delete);
 
-    router.get('/search', posts.search);
+    
    
     app.use("/api/posts", router);
 };
