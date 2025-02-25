@@ -38,5 +38,31 @@ $('#loginBtn').on('click', function () {
         return;
     }
 
-    showModal("Incorrect username or password.");
+    // make an AJAX call to the login endpoint
+    $.ajax({
+        url: "/api/users/login", // Replace with your actual login endpoint
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ email, password }),
+        success: function(response) {
+            // On successful login, store user data in session storage
+            if (response.message === "Login succefull") {
+                // Store user data in session storage
+                sessionStorage.setItem("currentUser", JSON.stringify(response.user));
+
+                // Redirect to home.html
+                window.location.href = "../html/home.html";
+            } else {
+                showModal(response.message || "Incorrect email or password."); // Show error message
+            }
+        },
+        error: function(xhr, status, error) {
+            // Handle errors (e.g., network issues, server errors)
+            if (xhr.responseJSON && xhr.responseJSON.message) {
+                showModal(xhr.responseJSON.message); // Show server error message
+            } else {
+                showModal("An error occurred. Please try again."); // Generic error message
+            }
+        }
+    });
 });
