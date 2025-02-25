@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
 const authenticateUser = (req, res, next) => {
   const token = req.header('Authorization');
 
@@ -15,7 +17,7 @@ const authenticateUser = (req, res, next) => {
       process.env.JWT_SECRET
     );
     req.user = verified; // Attach user info to request object
-    next(); // Proceed to the next middleware
+    next();
   } catch (err) {
     return res.status(403).json({ message: 'Invalid token' });
   }

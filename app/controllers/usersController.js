@@ -4,6 +4,8 @@ const { Op } = require('sequelize');
 const User = require('../models/usersModel');
 const log = require('../config/logger');
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
 // Get all users
 const getAllUsers = async (req, res) => {
   try {
@@ -151,7 +153,7 @@ const registerUser = async (req, res) => {
     }
     const existingEmail = await User.findOne({ where: { email } });
     if (existingEmail) {
-      console.log('Email already registeres', email);
+      console.log('Email already registered', email);
       return res.status(400).json({ message: 'Email already registered' });
     }
 
@@ -201,7 +203,7 @@ const loginUser = async (req, res) => {
 
     if (!matchPass) {
       log.warn('Invalid login attempt');
-      return res.status(401).json({ message: 'Ivalid email or password' });
+      return res.status(401).json({ message: 'Invalid email or password' });
     }
 
     // server create the token
@@ -215,7 +217,7 @@ const loginUser = async (req, res) => {
 
     return res.status(200).json({
       message: 'Login succefull',
-      token, // send to frontend
+      token,
       user: {
         userId: user.userId,
         username: user.username,
@@ -230,6 +232,30 @@ const loginUser = async (req, res) => {
   }
 };
 
+// Upload a Profile Picture
+
+const uploadProfilePicture = async (req, res) => {
+  console.log(`recieved request to upload profile picture for user ID `);
+  try {
+    const { id } = req.params;
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ message: 'No uploaded file' });
+    }
+
+    const imageUrl = file.path;
+    await User.update({ profilePicture: imageUrl }, { where: { userId: id } });
+    return res.status(200).json({
+      message: 'Profile Picture updated succefully',
+      profilePicture: imageUrl,
+    });
+  } catch (err) {
+    log.error(`Error uploadin picture`);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -237,4 +263,5 @@ module.exports = {
   updateUserProfile,
   registerUser,
   loginUser,
+  uploadProfilePicture,
 };

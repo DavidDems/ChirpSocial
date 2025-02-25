@@ -29,7 +29,7 @@
 
 #nav div {
   margin: 30%;
-  margin-top: 15%;
+  margin-top: 5%;
   font-size: 2rem;
   color: #78009E;
   padding: 0 2%;
@@ -75,10 +75,11 @@
 
 #register-form label, #login-form label {
   text-align: right;
+  margin: 0.5rem 0;
 }
 
 #register-form input, #login-form input {
-  margin: 0 0.5rem;
+  margin: 0.5rem 0.5rem;
 }
 
 #register-form button, #login-form button {
@@ -90,7 +91,8 @@
 #register-form button, #register-form h2, #login-form button, #login-form h2 {
   grid-column: 1/span 2;
   margin: auto;
-  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 #modal {
@@ -127,10 +129,6 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-p {
-  margin-bottom: 0;
 }
 
 .posts-area {
@@ -200,6 +198,10 @@ p {
   font-weight: bold;
 }
 
+.post-name:hover {
+  cursor: pointer;
+}
+
 .post-date {
   margin-left: 2%;
 }
@@ -216,6 +218,11 @@ p {
   cursor: pointer;
 }
 
+.reply-icon, .repost-icon, .like-icon {
+  color: black;
+  text-decoration: none;
+}
+
 #create-reply {
   display: flex;
   align-items: center;
@@ -226,10 +233,43 @@ p {
   flex-direction: row;
 }
 
-#register-link {
+#reply-btn {
+  margin-left: auto;
+}
+
+#reply-btn button {
+  background-color: #BCC8FF;
+  padding: 15% 20%;
+  border-radius: 2rem;
+}
+
+#reply-btn button:hover {
+  border: 2px solid #AA76CD;
+}
+
+#reply-txt {
+  background-color: #E8FFFC;
+  border: none;
+  width: 100%;
+}
+
+#reply-txt:focus {
+  outline: none;
+}
+
+#register {
   grid-column: 1/span 2;
   margin: auto;
   margin-bottom: 0.5rem;
+}
+
+#register-link {
+  color: blue;
+  text-decoration: underline;
+}
+
+#register-link:hover {
+  cursor: pointer;
 }
 
 #register-form p {
@@ -295,6 +335,17 @@ p {
   border: 2px solid #AA76CD;
 }
 
+#search-bar {
+  margin-bottom: 0.75%;
+  background-color: #E8FFFC;
+  border: 2px solid #AA76CD;
+  border-radius: 0.5rem;
+}
+
+#search-bar:focus {
+  outline: none;
+}
+
 body {
   background-color: #E8FFFC;
 }
@@ -303,6 +354,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin: auto;
   margin-top: 2%;
+}
+
+p {
+  margin-bottom: 0;
 }/*# sourceMappingURL=main.css.map */

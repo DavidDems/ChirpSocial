@@ -1,10 +1,14 @@
 const express = require('express');
+const upload = require('../middleware/upload.js');
 const {
   validateRegistration,
   validateLogin,
 } = require('../middleware/userValidation.js');
 
+const authenticateUser = require('../middleware/authMiddleware.js');
+
 const {
+  uploadProfilePicture,
   getAllUsers,
   getUserById,
   searchUser,
@@ -13,8 +17,6 @@ const {
   loginUser,
 } = require('../controllers/usersController.js');
 
-const authenticateUser = require('../middleware/authMiddleware.js');
-
 const router = express.Router();
 
 // Registe a new user with validation
@@ -22,6 +24,14 @@ router.post('/users/register', validateRegistration, registerUser);
 
 // User login with validation
 router.post('/users/login', validateLogin, loginUser);
+
+// Upload profile picture
+router.post(
+  '/users/:id/uploadProfilePicture',
+  authenticateUser,
+  upload.single('profilePicture'),
+  uploadProfilePicture
+);
 
 // Get all Users
 router.get('/users', getAllUsers);
@@ -34,7 +44,5 @@ router.get('/users/:id', authenticateUser, getUserById);
 
 // Update user Profile (authentication needed)
 router.patch('/users/:id', authenticateUser, updateUserProfile);
-// Delete User by ID
-// router.delete('/users/:id', deleteUser);
 
 module.exports = router;

@@ -1,11 +1,11 @@
 // function to show the modal with an error message
 function showModal(message) {
 
-    $('#error').text(message);
-    $('#modal').css('display', 'block');
+    $("#error").text(message);
+    $("#modal").css("display", "block");
 
     $("#close").on("click", function() {
-        $('#modal').css('display', 'none');
+        $("#modal").css("display", "none");
     });
 }
 
@@ -15,25 +15,30 @@ function validatePasswordLength(password) {
 }
 
 // live validation for the password field
-$('#password').on('input', function() {
+$("#password").on("input", function() {
 
     const password = $(this).val();
-    const $errorMessage = $(this).next('p');
+    const $errorMessage = $(this).next("p");
 
     if (!validatePasswordLength(password)) {
-        $errorMessage.text('Minimum 8 characters.').css('color', 'red');
+        $errorMessage.text("Minimum 8 characters.").css("color", "red");
     } else {
-        $errorMessage.text('').css('color', '');
+        $errorMessage.text("").css("color", "");
     }
 });
 
-$('#loginBtn').on('click', function () {
-    const password = $('#password').val();
+$("#register-link").on("click", function () {
+    window.location.href = "../html/register.html";
+})
+
+$("#loginBtn").on("click", function () {
+    const email = $("#email").val();
+    const password = $("#password").val();
     let isValid = true; // assume validation is successful initially
 
     // validate password length
     if (!validatePasswordLength(password)) {
-        showModal('Password must be at least 8 characters long.', false);
+        showModal("Password must be at least 8 characters long.", false);
         isValid = false;
         return;
     }
