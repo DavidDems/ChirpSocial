@@ -18,6 +18,7 @@ const createPost = async (req, res) => {
     
 
     try {
+        const replyId = req.body.replyId || null;
         const postTxt = req.body.postTxt || null;
         const postImg = req.file ? req.file.path : null;
         
@@ -30,6 +31,7 @@ const createPost = async (req, res) => {
         await Post.create({
             postTxt,
             postImg,
+            replyId,
             publisherId: req.user.id,
         });
         res.status(201).send({ message: "Post has been created."});
@@ -69,9 +71,18 @@ const searchPost = async (req, res) => {
 
 
 const getAllPosts = async (req, res) => {
+    const replyId = req.query.replyId;
+
     try {
-       const posts = await Post.findAll();
-       res.status(200).send(posts); 
+        if (replyId) {
+            const replies = await Post.findAll({
+                where: { replyId: replyId },
+            });
+            return res.status(200).send(replies);
+        } else {
+            const posts = await Post.findAll();
+            res.status(200).send(posts);
+        }
     } catch (err) {
         npmlog.error("DB", "Error retrieving posts", err);
         res.status(500).send({message: "Error retrieving posts."})
@@ -149,6 +160,8 @@ module.exports = {
     searchPost,
     getAllPosts,
     getOnePost,
-    deletePost
+    deletePost,
+    getReplyCount,
+    getRepostCount
   };
   

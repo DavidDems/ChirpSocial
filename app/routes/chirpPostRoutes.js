@@ -9,6 +9,8 @@ const {
     getAllPosts,
     getOnePost,
     deletePost,
+    getReplyCount,
+    getRepostCount,
 } = require("../controllers/postsController.js");
 
 const router = express.Router();
@@ -22,5 +24,9 @@ router.get("/posts", getAllPosts);
 router.get("/posts/:id", getOnePost);
 
 router.delete("/posts/:id", deletePost);
+
+router.get("/posts/replyCount/:id", getReplyCount);
+
+router.get("/posts/repostCount/:id", getRepostCount);
 
 module.exports = router;

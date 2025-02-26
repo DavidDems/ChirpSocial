@@ -16,7 +16,7 @@ const authenticateUser = (req, res, next) => {
       token.replace('Bearer ', ''),
       process.env.JWT_SECRET
     );
-    req.user = verified; // Attach user info to request object
+    req.user = {id: verified.userId}; // Attach user info to request object
     next();
   } catch (err) {
     return res.status(403).json({ message: 'Invalid token' });

@@ -29,16 +29,43 @@ $(document).ready(function() {
                     $(`#replied${post.replyId}-name`).html(`<b>${repliedUser.username}</b>, ${repliedUser.displayname}`);
                 }
 
-                // update reply and repost counts for non-reply and non-repost posts
-                if (!post.replyId && !post.repostId) {
-                    getReplyCount(post.postId).then((response) => {
-                        const replyCount = response.count;
-                        $(`#post${post.postId}-reply`).html(`<i class="bi bi-chat"></i>${replyCount}`);
-                    });
+                // update reply count
+                getReplyCount(post.postId).then((response) => {
+                    const replyCount = response.count;
+                    $(`#post${post.postId}-reply`).html(`<i class="bi bi-chat"></i>${replyCount}`);
+                    if (post.replyId) {
+                        $(`#reply${post.postId}-reply`).html(`<i class="bi bi-chat"></i>${replyCount}`);
+                    }
+                    if (post.repostId) {
+                        $(`#repost${post.postId}-reply`).html(`<i class="bi bi-chat"></i>${replyCount}`);
+                    }
+                });
 
-                    getRepostCount(post.postId).then((response) => {
+                // update repost count
+                getRepostCount(post.postId).then((response) => {
+                    const repostCount = response.count;
+                    $(`#post${post.postId}-repost`).html(`<i class="bi bi-repeat"></i>${repostCount}`);
+                    if (post.replyId) {
+                        $(`#reply${post.postId}-repost`).html(`<i class="bi bi-repeat"></i>${repostCount}`);
+                    }
+                    if (post.repostId) {
+                        $(`#repost${post.postId}-repost`).html(`<i class="bi bi-repeat"></i>${repostCount}`);
+                    }
+                });
+
+                // update reply count for replied post
+                if (post.replyId) {
+                    getReplyCount(post.replyId).then((response) => {
+                        const replyCount = response.count;
+                        $(`#replied${post.replyId}-reply`).html(`<i class="bi bi-chat"></i>${replyCount}`);
+                    });
+                }
+
+                // update repost count for reposted post
+                if (post.repostId) {
+                    getRepostCount(post.repostId).then((response) => {
                         const repostCount = response.count;
-                        $(`#post${post.postId}-repost`).html(`<i class="bi bi-repeat"></i>${repostCount}`);
+                        $(`#replied${post.repostId}-reply`).html(`<i class="bi bi-chat"></i>${repostCount}`);
                     });
                 }
             }
