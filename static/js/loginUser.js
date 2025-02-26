@@ -10,10 +10,32 @@ $(document).ready(function() {
         });
     }
 
+    // function to validate the email
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regex.test(email)) {
+            return "Invalid email format.";
+        }
+        return null; 
+    }
+
     // function to validate the password length
     function validatePasswordLength(password) {
         return password.length >= 8; // Password must be at least 8 characters
     }
+
+    // live validation for the email field
+    $("#email").on("input", function() {
+        const email = $(this).val();
+        const $errorMessage = $(this).next("p");
+
+        const error = validateEmail(email);
+        if (error) {
+            $errorMessage.text(error).css("color", "red");
+        } else {
+            $errorMessage.text("").css("color", "");
+        }
+    });
 
     // live validation for the password field
     $("#password").on("input", function() {

@@ -11,7 +11,7 @@ function postTypeFormat(post, repliedPost, repostedPost) {
             <div class="reply${post.postId} reply-post">
                 <div class="reply">
                     <div class="post-profile">
-                        <img class="picture" src="../../medias/defaultUser.webp">
+                        <img class="picture" src="../medias/defaultUser.webp">
                     </div>
                     <div class="content">
                         <div class="post-data">
@@ -25,7 +25,7 @@ function postTypeFormat(post, repliedPost, repostedPost) {
                 </div>
                 <div class="replied${post.replyId} replied-post">
                     <div class="post-profile">
-                        <img class="picture" src="../../medias/defaultUser.webp">
+                        <img class="picture" src="../medias/defaultUser.webp">
                     </div>
                     <div class="content">
                         <div class="post-data">
@@ -53,7 +53,7 @@ function postTypeFormat(post, repliedPost, repostedPost) {
             <div class="repost${post.postId} repost-post">
                 <div class="repost">
                     <div class="post-profile">
-                        <img class="picture" src="../../medias/defaultUser.webp">
+                        <img class="picture" src="../medias/defaultUser.webp">
                     </div>
                     <div class="content">
                         <div class="post-data">
@@ -67,7 +67,7 @@ function postTypeFormat(post, repliedPost, repostedPost) {
                 </div>
                 <div class="reposted${post.repostId} reposted-post">
                     <div class="post-profile">
-                        <img class="picture" src="../../medias/defaultUser.webp">
+                        <img class="picture" src="../medias/defaultUser.webp">
                     </div>
                     <div class="content">
                         <div class="post-data">
@@ -89,7 +89,7 @@ function postTypeFormat(post, repliedPost, repostedPost) {
         postHtml = `
             <div class="post${post.postId} posts">
                 <div class="post-profile">
-                    <img class="picture" src="../../medias/defaultUser.webp">
+                    <img class="picture" src="../medias/defaultUser.webp">
                 </div>
                 <div class="content">
                     <div class="post-data">
