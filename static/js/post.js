@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // get the current postId
     const currentPostId = sessionStorage.getItem("currentPostId");
 
     function showModal(message) {
@@ -11,6 +12,7 @@ $(document).ready(function() {
         });
     }
 
+    // display the current post and create a reply input area
     if (currentPostId) {
         $.ajax({
             url: `/api/posts/${currentPostId}`,
@@ -67,6 +69,7 @@ $(document).ready(function() {
         });
     }
 
+    // function to format the date
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString("en-US", {
@@ -76,6 +79,7 @@ $(document).ready(function() {
         });
     }
 
+    // function to get all the replies with the replyId equal to current post id
     function fetchReplies(postId) {
         $.ajax({
             url: `/api/posts?replyId=${postId}`,
@@ -115,6 +119,7 @@ $(document).ready(function() {
         });
     }
 
+    // reply button click function to POST reply
     $(document).on("click", "#reply-btn button", function (event) {
         event.preventDefault();
 
@@ -153,19 +158,34 @@ $(document).ready(function() {
         });
     });
 
-    $(".post-profile").on("click", function() {
-        window.location.href = "../html/profile.html";
-    });
+    // repost icon onclick function to POST a repost
+    $(document).on("click", ".repost-icon", function() {
+        const repostTxt = "Reposted";
 
-    $(".post-name").on("click", function() {
-        window.location.href = "../html/profile.html";
-    });
+        const postData = {
+            postTxt: repostTxt,
+            repostId: currentPostId,
+            postDate: new Date().toISOString(),
+        };
 
-    $(".reply-icon").on("click", function() {
-        window.location.href = "../html/post.html";
-    });
-
-    $(".repost-icon").on("click", function() {
-        window.location.href = "../html/createPost.html";
+        $.ajax({
+            url: "/api/posts",
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem("token")}`
+            },
+            contentType: "application/json",
+            data: JSON.stringify(postData),
+            success: function (response) {
+                showModal("Repost posted successfully!");
+            },
+            error: function (xhr, status, error) {
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    showModal(xhr.responseJSON.message);
+                } else {
+                    showModal("An error occurred. Please try again.");
+                }
+            },
+        });
     });
 });

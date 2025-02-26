@@ -13,6 +13,13 @@ function getRepliedPost(replyId) {
     });
 }
 
+function getRepostedPost(repostId) {
+    return $.ajax({
+        url: `/api/posts/${repostId}`,
+        method: "GET",
+    });
+}
+
 function getReplyCount(postId) {
     return $.ajax({
         url: `/api/posts/replyCount/${postId}`,
@@ -30,7 +37,6 @@ function getRepostCount(postId) {
 
 // shortcut to fetch user data by ID
 function getUserById(userId) {
-    // retrieve token from sessionStorage
     const token = sessionStorage.getItem("token");
 
     if (!token) {

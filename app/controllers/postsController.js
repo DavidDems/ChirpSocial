@@ -19,6 +19,7 @@ const createPost = async (req, res) => {
 
     try {
         const replyId = req.body.replyId || null;
+        const repostId = req.body.repostId || null;
         const postTxt = req.body.postTxt || null;
         const postImg = req.file ? req.file.path : null;
         
@@ -32,7 +33,9 @@ const createPost = async (req, res) => {
             postTxt,
             postImg,
             replyId,
+            repostId,
             publisherId: req.user.id,
+            postDate: new Date().toISOString(),
         });
         res.status(201).send({ message: "Post has been created."});
     } catch (err) {
