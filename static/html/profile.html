@@ -1,127 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chirp Social</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<link rel="stylesheet" href="../css/main.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script src="../js/editProfile.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Website banner -->
     <div id="banner-nav">
-        <div id="banner-logo">
-            <a><img id="logo" src="../../medias/chirpLogo.png"></a>
+      <div id="banner-logo">
+        <a><img id="logo" src="../../medias/chirpLogo.png" /></a>
+      </div>
+
+      <div id="nav">
+        <div id="home">
+          <a href="home.html"><i class="bi bi-house"></i></a>
         </div>
-        
-        <div id="nav">
-            <div id="home">
-                <a href="home.html"><i class="bi bi-house"></i></a>
-            </div>
-            <div id="createPost">
-                <a href="createPost.html"><i class="bi bi-plus-circle"></i></a>
-            </div>
-            <div id="search">
-                <a href="search.html"><i class="bi bi-search"></i></a>
-            </div>
-            <div id="followers">
-                <a><i class="bi bi-people-fill"></i></a>
-            </div>
+        <div id="createPost">
+          <a href="createPost.html"><i class="bi bi-plus-circle"></i></a>
         </div>
-        
-        <div id="profile-icon">
-            <a><img id="icon" src="../../medias/defaultUser.webp"></a>
+        <div id="search">
+          <a href="search.html"><i class="bi bi-search"></i></a>
         </div>
+        <div id="followers">
+          <a><i class="bi bi-people-fill"></i></a>
+        </div>
+      </div>
+
+      <div id="profile-icon">
+        <a><img id="icon" src="../../medias/defaultUser.webp" /></a>
+      </div>
     </div>
 
     <div class="center-content">
-        <div id="profile">
-            
-            <div id="user-row">
-                <div id="picture-name">
-                    <img class="picture" src="../../medias/defaultUser.webp">
-                    <p id="user-name"><b>@JohnDoe</b></p>
-                    <p id="display-name">John Doe</p>
-                </div>
+      <div id="profile">
+        <div id="user-row">
+          <div id="picture-name">
+            <img class="picture" src="../../medias/defaultUser.webp" />
+            <p id="user-name"><b>@JohnDoe</b></p>
+            <p id="display-name">John Doe</p>
+          </div>
 
-                <div id="bio">
-                    <p>Former president of earth.</p>
-                </div>
+          <div id="bio">
+            <p>Former president of earth.</p>
+          </div>
 
-                <div id="profile-btn">
-                    <a><button id="editBtn" type="button">Edit</button></a>
-                </div>
-            </div>
-
-            <div id="user-data">
-                <p id="date-joined">Joined February 22nd 2025</p>
-                <p id="following">1234 Following</p>
-                <p id="followers">12.78K Followers</p>
-            </div>
-
-            <div class="posts-area">
-                <div class="posts-links">
-                    <p id="all-posts">Posts</p>
-                    <p id="replies">Replies</p>
-                    <p id="reposts">Reposts</p>
-                    <p id="media">Media</p>
-                </div>
-
-                <div id="posts-list">
-                    <div id="post0" class="posts">
-                        <div class="post-profile">
-                            <img class="picture" src="../../medias/defaultUser.webp">
-                        </div>
-                        <div class="content">
-                            <div class="post-data">
-                                <p id="post0-name" class="post-name">@JohnDoe</p>
-                                <p id="post0-date" class="post-date">February 22nd 2025</p>
-                            </div>
-                            <div class="post-content">
-                                <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
-                            </div>
-                            <div class="post-interact">
-                                <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
-                                <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
-                                <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="post1" class="posts">
-                        <div class="post-profile">
-                            <img class="picture" src="../../medias/defaultUser.webp">
-                        </div>
-                        <div class="content">
-                            <div class="post-data">
-                                <p id="post0-name" class="post-name">@JohnDoe</p>
-                                <p id="post0-date" class="post-date">February 22nd 2025</p>
-                            </div>
-                            <div class="post-content">
-                                <p>This is an example post on the Chirp Social media website. This post was made on the account @JohnDoe on February 22nd 2025</p>
-                            </div>
-                            <div class="post-interact">
-                                <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
-                                <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
-                                <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+          <div id="profile-btn">
+            <a><button id="editBtn" type="button">Edit</button></a>
+          </div>
         </div>
+
+        <div id="user-data">
+          <p id="date-joined">Joined February 22nd 2025</p>
+          <p id="following">1234 Following</p>
+          <p id="followers">12.78K Followers</p>
+        </div>
+
+        <div id="edit-profile-picture">
+          <label for="profilePicInput" class="upload-label">
+            <i class="bi bi-camera"></i> Change Profile Picture
+          </label>
+          <input
+            type="file"
+            id="profilePicInput"
+            accept="image/*"
+            style="display: none"
+          />
+        </div>
+
+        <div class="posts-area">
+          <div class="posts-links">
+            <p id="all-posts">Posts</p>
+            <p id="replies">Replies</p>
+            <p id="reposts">Reposts</p>
+            <p id="media">Media</p>
+          </div>
+
+          <div id="posts-list">
+            <div id="post0" class="posts">
+              <div class="post-profile">
+                <img class="picture" src="../../medias/defaultUser.webp" />
+              </div>
+              <div class="content">
+                <div class="post-data">
+                  <p id="post0-name" class="post-name">@JohnDoe</p>
+                  <p id="post0-date" class="post-date">February 22nd 2025</p>
+                </div>
+                <div class="post-content">
+                  <p>
+                    This is an example post on the Chirp Social media website.
+                    This post was made on the account @JohnDoe on February 22nd
+                    2025
+                  </p>
+                </div>
+                <div class="post-interact">
+                  <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
+                  <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
+                  <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
+                </div>
+              </div>
+            </div>
+            <div id="post1" class="posts">
+              <div class="post-profile">
+                <img class="picture" src="../../medias/defaultUser.webp" />
+              </div>
+              <div class="content">
+                <div class="post-data">
+                  <p id="post0-name" class="post-name">@JohnDoe</p>
+                  <p id="post0-date" class="post-date">February 22nd 2025</p>
+                </div>
+                <div class="post-content">
+                  <p>
+                    This is an example post on the Chirp Social media website.
+                    This post was made on the account @JohnDoe on February 22nd
+                    2025
+                  </p>
+                </div>
+                <div class="post-interact">
+                  <a id="post0-reply"><i class="bi bi-chat"></i>135</a>
+                  <a id="post0-repost"><i class="bi bi-repeat"></i>42</a>
+                  <a id="post0-like"><i class="bi bi-heart"></i>1.2K</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Modal popup on successful user profile changes -->
-	<div id="modal">
-		<div id="modal-content">
-		  <span id="close">&times;</span>
-		  <p id="success">
-		  </p>
-		</div>  
-	</div>
-</body>
+    <div id="modal">
+      <div id="modal-content">
+        <span id="close">&times;</span>
+        <p id="success"></p>
+      </div>
+    </div>
+  </body>
 </html>

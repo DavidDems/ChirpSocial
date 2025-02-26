@@ -30,7 +30,7 @@ router.post('/users/login', validateLogin, loginUser);
 // Upload profile picture
 router.post(
   '/users/:id/uploadProfilePicture',
-
+  authenticateUser,
   uploadProfile.single('profilePicture'),
   uploadProfilePicture
 );
