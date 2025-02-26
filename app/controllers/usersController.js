@@ -20,10 +20,9 @@ const getAllUsers = async (req, res) => {
         'dateOfBirth',
         'followers',
         'dateJoined',
-        'password', // To be removed later
       ],
     });
-    console.log('Successfully fetched users');
+    console.log('Successfully fetched users', users);
     return res.status(200).json(users);
   } catch (err) {
     log.error('Error fetchin users', err.message);
@@ -235,7 +234,10 @@ const loginUser = async (req, res) => {
 // Upload a Profile Picture
 
 const uploadProfilePicture = async (req, res) => {
-  console.log(`recieved request to upload profile picture for user ID `);
+  console.log(
+    `Received request to upload profile picture for user ID: ${req.params.id}`
+  );
+
   try {
     const { id } = req.params;
     const file = req.file;
@@ -244,14 +246,20 @@ const uploadProfilePicture = async (req, res) => {
       return res.status(400).json({ message: 'No uploaded file' });
     }
 
+    console.log('Uploaded file details:', file);
+
     const imageUrl = file.path;
+
+    console.log('Image URL to be saved:', imageUrl);
+
     await User.update({ profilePicture: imageUrl }, { where: { userId: id } });
+
     return res.status(200).json({
-      message: 'Profile Picture updated succefully',
+      message: 'Profile Picture updated successfully',
       profilePicture: imageUrl,
     });
   } catch (err) {
-    log.error(`Error uploadin picture`);
+    log.error(`Error uploading picture: ${err.message}`);
     return res.status(500).json({ message: 'Internal server error' });
   }
 };
